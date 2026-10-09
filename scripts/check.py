@@ -66,7 +66,7 @@ with tempfile.TemporaryDirectory(prefix="ramp-starter-check-") as directory:
     for name in ("ramp-starter", "ronna"):
         assert (packages / name / ".git").is_dir()
     personal = config / "lua/config/keymaps.lua"
-    personal.write_text("ramp.keymap.set('d', '<C-y>', function() ramp.notify('PERSONAL OVERRIDE') end)\n")
+    personal.write_text("ramp.api.set_notifications({ min_level = 'info' })\nramp.keymap.set('d', '<C-y>', function() ramp.notify('PERSONAL OVERRIDE') end)\n")
     personal_text = personal.read_text()
     for source in (starter_source, ronna_source):
         (source / "release-marker").write_text("updated\n")
