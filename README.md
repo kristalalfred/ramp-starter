@@ -6,12 +6,15 @@ Git and pinned to release tags.
 
 ## Install
 
-Install Git, Ramp, and the Ronna CLI first. Ramp must support the current Lua API,
-including draft recovery and multiple connections. This setup was verified with
-Ramp revision `b5642c9` and Ronna revision `d62e7b9`.
+Install Git, Ramp, and the Ronna CLI first:
 
-The Homebrew formulae for Ramp and Ronna are not published yet. Once available,
-the tap will distribute binaries only.
+```sh
+brew install git kristalalfred/tap/ramp kristalalfred/tap/ronna
+```
+
+The [tap](https://github.com/kristalalfred/homebrew-tap) installs binaries only,
+including the shared Exo runtime dependency. This setup was verified with the
+0.1.0 packages: Ramp revision `b5642c9` and Ronna revision `d62e7b9`.
 
 Back up an existing configuration before cloning. These commands use the default
 XDG paths; substitute your configured paths if you use `XDG_CONFIG_HOME`.
@@ -96,6 +99,12 @@ an entry disables that package for this configuration, unless it is also in a
 `default_ui = false` in its `opts` to use another session interface.
 
 ## Update Lua packages
+
+Update the binaries with Homebrew:
+
+```sh
+brew upgrade kristalalfred/tap/exo kristalalfred/tap/ramp kristalalfred/tap/ronna
+```
 
 Removing the starter's `.git` does not affect the separate package checkouts.
 To fetch the versions configured by the installer:
